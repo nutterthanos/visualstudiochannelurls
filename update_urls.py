@@ -15,7 +15,7 @@ def update_vs_valid():
             # Extract the current range from the line
             start, end = map(int, line.split("(")[-1].split(")")[0].split(","))
             # Update the range by incrementing each number by 5
-            new_line = f"for i in range({start + 5}, {end + 5}):"
+            new_line = f"    for i in range({start + 5}, {end + 5}):  # Updated range to iterate from {start + 5} to {end + 5}\n"
             new_lines.append(new_line)
         else:
             new_lines.append(line)
