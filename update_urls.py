@@ -10,13 +10,13 @@ def update_vs_valid(start_number_increment, end_number_increment):
     
     # Find and update the lines containing start_file_number and end_file_number
     new_lines = []
-    for i, line in enumerate(lines):
-        if i == 50:  # Line 51 (zero-based index)
+    for line in lines:
+        if line.startswith("start_file_number"):
             start_number = int(line.split("=")[-1].strip())
             new_start_number = start_number + start_number_increment
             new_line = line.replace(str(start_number), str(new_start_number))
             new_lines.append(new_line)
-        elif i == 51:  # Line 52 (zero-based index)
+        elif line.startswith("end_file_number"):
             end_number = int(line.split("=")[-1].strip())
             new_end_number = end_number + end_number_increment
             new_line = line.replace(str(end_number), str(new_end_number))
