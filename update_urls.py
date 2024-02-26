@@ -11,15 +11,10 @@ def update_vs_valid():
     # Find and update the line containing the for loop
     new_lines = []
     for line in lines:
-        if "for i in range(1, 5):" in line:
-            new_line = line.replace("for i in range(1, 5):", "for i in range(6, 10):")  # Update range from 1 to 5 to 6 to 10
+        if "for i in range(6, 10):" in line:
+            new_line = "for i in range(11, 15):"  # Update range from 6 to 10 to 11 to 15
             new_lines.append(new_line)
         else:
-            # Increment each number in the for loop range by 5
-            for i in range(1, 6):
-                if str(i) in line:
-                    updated_number = str(int(i) + 5)
-                    line = line.replace(str(i), updated_number)
             new_lines.append(line)
     
     # Write the updated lines back to vs_valid.py
