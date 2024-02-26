@@ -11,8 +11,11 @@ def update_vs_valid():
     # Find and update the line containing the for loop
     new_lines = []
     for line in lines:
-        if "for i in range(6, 10):" in line:
-            new_line = "for i in range(11, 15):"  # Update range from 6 to 10 to 11 to 15
+        if "for i in range(" in line:
+            # Extract the current range from the line
+            start, end = map(int, line.split("(")[-1].split(")")[0].split(","))
+            # Update the range by incrementing each number by 5
+            new_line = f"for i in range({start + 5}, {end + 5}):"
             new_lines.append(new_line)
         else:
             new_lines.append(line)
