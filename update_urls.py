@@ -29,5 +29,5 @@ def update_vs_valid(start_number_increment, end_number_increment):
         f.writelines(new_lines)
 
 if __name__ == "__main__":
-    # Increment start_file_number by 100 and end_file_number by 100
-    update_vs_valid(start_number_increment=100, end_number_increment=100)
+    # Increment start_file_number by 5 and end_file_number by 5
+    update_vs_valid(start_number_increment=5, end_number_increment=5)
