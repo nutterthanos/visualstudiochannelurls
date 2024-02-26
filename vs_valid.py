@@ -4,7 +4,7 @@ import asyncio
 import logging
 from aiohttp import ClientSession, ClientResponse
 
-MAX_CONCURRENT_REQUESTS = 9
+MAX_CONCURRENT_REQUESTS = 6
 VALID_URLS_FILE = "valid_urls.txt"
 URLS_FILE_PREFIX = "urls_"
 URL_PATTERN = "https://aka.ms/vs/15/release/{}/channel"
