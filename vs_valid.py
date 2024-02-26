@@ -4,7 +4,7 @@ import asyncio
 import logging
 from aiohttp import ClientSession, ClientResponse
 
-MAX_CONCURRENT_REQUESTS = 2
+MAX_CONCURRENT_REQUESTS = 9
 VALID_URLS_FILE = "valid_urls.txt"
 URLS_FILE_PREFIX = "urls_"
 URL_PATTERN = "https://aka.ms/vs/15/release/{}/channel"
@@ -26,7 +26,8 @@ async def process_url(session: ClientSession, url: str, semaphore: asyncio.Semap
         location = response.headers["location"]
         if "https://download.visualstudio.microsoft.com" in location or "https://download.microsoft.com" in location:
             logger.info(f"Valid URL found: {location}")
-            return location
+            return url  # Return the original aka.ms URL
+    return None
 
 async def write_valid_urls(valid_urls):
     async with aiofiles.open(VALID_URLS_FILE, "a") as f:
