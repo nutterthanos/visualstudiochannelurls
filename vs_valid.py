@@ -4,7 +4,7 @@ import asyncio
 import logging
 from aiohttp import ClientSession, ClientResponse
 
-MAX_CONCURRENT_REQUESTS = 4
+MAX_CONCURRENT_REQUESTS = 2
 VALID_URLS_FILE = "valid_urls.txt"
 URLS_FILE_PREFIX = "urls_"
 URL_PATTERN = "https://aka.ms/vs/15/release/{}/channel"
@@ -47,7 +47,7 @@ async def crawl(urls_file: str) -> None:
     await write_valid_urls(valid_urls)
 
 async def main() -> None:
-    for i in range(301, 305):  # Updated range to iterate from 301 to 305
+    for i in range(1, 5):  # Updated range to iterate from 1 to 5
         urls_file = f"{URLS_FILE_PREFIX}{i}.txt"
         logger.info(f"Starting crawl for {urls_file}")
         await crawl(urls_file)
