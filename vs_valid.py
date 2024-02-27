@@ -47,7 +47,7 @@ async def crawl(urls_file: str) -> None:
     await write_valid_urls(valid_urls)
 
 async def main() -> None:
-    for i in range(291, 295):  # Updated range to iterate from 291 to 295
+    for i in range(296, 300):  # Updated range to iterate from 296 to 300
         urls_file = f"{URLS_FILE_PREFIX}{i}.txt"
         logger.info(f"Starting crawl for {urls_file}")
         await crawl(urls_file)
