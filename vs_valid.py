@@ -62,7 +62,7 @@ async def crawl(urls_file: str, failed_urls: list) -> None:
 
 async def main() -> None:
     failed_urls = []
-    for i in range(31, 35):  # Updated range to iterate from 31 to 35
+    for i in range(36, 40):  # Updated range to iterate from 36 to 40
         urls_file = f"{URLS_FILE_PREFIX}{i}.txt"
         logger.info(f"Starting crawl for {urls_file}")
         failed_urls = await crawl(urls_file, failed_urls)
