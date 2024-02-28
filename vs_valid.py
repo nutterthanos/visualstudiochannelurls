@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 async def fetch(session: ClientSession, url: str, semaphore: asyncio.Semaphore) -> ClientResponse:
     async with semaphore:
         async with session.get(url, allow_redirects=False) as response:
-            logger.info(f"Response of {url}, {response.status}")
+            logger.info(f"Response of {url}, {response}, {response.status}")
             return response
 
 async def process_url(session: ClientSession, url: str, semaphore: asyncio.Semaphore) -> None:
@@ -62,7 +62,7 @@ async def crawl(urls_file: str, failed_urls: list) -> None:
 
 async def main() -> None:
     failed_urls = []
-    for i in range(86, 90):  # Updated range to iterate from 86 to 90
+    for i in range(1, 5):  # Updated range to iterate from 1 to 5
         urls_file = f"{URLS_FILE_PREFIX}{i}.txt"
         logger.info(f"Starting crawl for {urls_file}")
         failed_urls = await crawl(urls_file, failed_urls)
